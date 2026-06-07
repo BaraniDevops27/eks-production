@@ -34,6 +34,8 @@ resource "aws_subnet" "public_1" {
   tags = {
     Name                     = "${var.environment}-public-subnet-1"
     "kubernetes.io/role/elb" = "1"
+    "kubernetes.io/cluster/prod-eks-cluster" = "shared"
+
 
     Environment = var.environment
     ManagedBy   = "terraform"
@@ -69,6 +71,8 @@ resource "aws_subnet" "private_1" {
   tags = {
     Name                              = "${var.environment}-private-subnet-1"
     "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/cluster/prod-eks-cluster" = "shared"
+
 
     Environment = var.environment
     ManagedBy   = "terraform"
