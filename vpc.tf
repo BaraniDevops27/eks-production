@@ -35,8 +35,6 @@ resource "aws_subnet" "public_1" {
     Name                     = "${var.environment}-public-subnet-1"
     "kubernetes.io/role/elb" = "1"
     "kubernetes.io/cluster/prod-eks-cluster" = "shared"
-
-
     Environment = var.environment
     ManagedBy   = "terraform"
     Project     = "eks"
