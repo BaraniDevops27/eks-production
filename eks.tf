@@ -3,12 +3,10 @@ resource "aws_eks_cluster" "main" {
   role_arn = aws_iam_role.eks_cluster_role.arn
 
   version = var.eks_version
-
   enabled_cluster_log_types = [
     "api",
     "audit"
   ]
-
   vpc_config {
     subnet_ids = [
       aws_subnet.private_1.id,
@@ -17,7 +15,6 @@ resource "aws_eks_cluster" "main" {
       aws_subnet.public_2.id
     ]
   }
-
   depends_on = [
     aws_iam_role_policy_attachment.eks_cluster_policy
   ]
@@ -29,7 +26,6 @@ resource "aws_eks_cluster" "main" {
     Project     = "eks"
   }
 }
-
 # -----------------------------------
 # EKS NODE GROUP
 # -----------------------------------
